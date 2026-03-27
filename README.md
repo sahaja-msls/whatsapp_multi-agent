@@ -54,14 +54,4 @@ python app.py
 
 Once the server is running, expose your local server to the internet (using a tool like ngrok) so WhatsApp can send webhooks to your application.
 
----
-
-## 📂 Project Structure
-
-## whatsapp_multi-agent/
-# ├── agents/                 # Logic for individual AI agents
-# ├── core/                   # WhatsApp API integration & webhook handling
-# ├── app.py                  # Main application entry point
-# ├── requirements.txt        # Python dependencies
-# └── .gitignore              # Ignored files (includes .env, venv/, etc.)##
 
