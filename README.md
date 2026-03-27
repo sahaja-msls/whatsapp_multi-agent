@@ -1,24 +1,66 @@
-# 🤖 Proactive WhatsApp AI Agent
+# 📱 WhatsApp AI Multi-Agent
 
-A multi-agent AI assistant built for WhatsApp that doesn't just answer questions—it actively manages your schedule and pushes real-time reminders to your phone. 
+An intelligent, multi-agent AI system integrated directly with WhatsApp. This project leverages Python to create conversational agents capable of handling complex queries, automating tasks, and providing dynamic responses through the WhatsApp interface.
 
-## 🌟 Features
-* **Multi-Agent Routing:** Uses LangGraph to dynamically route user questions to the correct tool.
-* **Lightning Fast:** Powered by LLaMA-3 (70B) on Groq hardware for near-instant inference.
-* **Proactive Reminders:** An internal background scheduler (`APScheduler`) constantly monitors your calendar and uses Twilio's Outbound API to push notifications when an event triggers.
-* **Live Tools:** Integrates with OpenWeatherMap, Yahoo Finance (`yfinance`), and NewsAPI for real-time data.
+---
 
-## 🛠️ Tech Stack
-* **AI Framework:** LangGraph / LangChain
-* **LLM:** LLaMA-3.3-70B-Versatile via Groq
-* **Backend:** Python / Flask
-* **Communication:** Twilio Sandbox for WhatsApp
-* **Job Scheduling:** APScheduler
+## ✨ Features
 
-## 🚀 How to Run Locally
+* **Multi-Agent Architecture:** Routes different types of user queries to specialized AI agents.
+* **WhatsApp Integration:** Seamless communication via WhatsApp API.
+* **Context-Aware Conversations:** Maintains chat memory for natural, ongoing dialogue.
+* **Secure Configuration:** Environment variables securely manage sensitive API keys.
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/whatsapp-ai-agent.git](https://github.com/YOUR_USERNAME/whatsapp-ai-agent.git)
-   cd whatsapp-ai-agent
-2.
+---
+
+## 🛠️ Prerequisites
+
+Before you begin, ensure you have the following installed:
+* Python 3.8 or higher
+* A WhatsApp Business API account 
+* Required AI/LLM API keys (e.g., OpenAI)
+
+---
+
+## 🚀 Installation & Setup
+
+**1. Clone the repository**
+git clone https://github.com/sahaja-msls/whatsapp_multi-agent.git
+cd whatsapp_multi-agent
+
+**2. Create a virtual environment**
+python -m venv venv
+venv\Scripts\activate
+
+**3. Install dependencies**
+pip install -r requirements.txt
+
+**4. Set up environment variables**
+Create a `.env` file in the root directory. Add your necessary API keys and tokens:
+
+WHATSAPP_API_KEY=your_whatsapp_token_here
+WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
+OPENAI_API_KEY=your_openai_api_key_here
+
+*(Note: The `.env` file is intentionally ignored by Git to keep your credentials secure.)*
+
+---
+
+## 💻 Usage
+
+Start the main application server:
+
+python app.py
+
+Once the server is running, expose your local server to the internet (using a tool like ngrok) so WhatsApp can send webhooks to your application.
+
+---
+
+## 📂 Project Structure
+
+whatsapp_multi-agent/
+├── agents/                 # Logic for individual AI agents
+├── core/                   # WhatsApp API integration & webhook handling
+├── app.py                  # Main application entry point
+├── requirements.txt        # Python dependencies
+└── .gitignore              # Ignored files (includes .env, venv/, etc.)
